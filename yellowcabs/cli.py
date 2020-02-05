@@ -1,4 +1,5 @@
 import click
+import requests
 
 from yellowcabs.helpers import download
 from yellowcabs.helpers import get_url
@@ -7,11 +8,16 @@ from yellowcabs import processing as p
 
 @click.command()
 @click.argument("year-month", type=click.DateTime(formats=["%Y-%m"]))
-def average_trip_duration(year_month):
+@click.pass_context
+def average_trip_duration(ctx, year_month):
     year = year_month.year
     month = year_month.month
     url = get_url(year_month)
-    fname = download(url)
+    try:
+        fname = download(url)
+    except requests.exceptions.RequestException as e:
+        click.echo(f"{e}")
+        ctx.abort()
     df = (
         p.load_csv(fname)
         .pipe(p.rename_columns)

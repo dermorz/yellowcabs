@@ -22,8 +22,9 @@ def download(url: furl) -> str:
     fname = get_local_filename(url)
     if os.path.exists(fname):
         return fname
-    with open(fname, "wb") as f:
-        with requests.get(url, stream=True) as response:
+    with requests.get(url, stream=True) as response:
+        response.raise_for_status()
+        with open(fname, "wb") as f:
             tq = tqdm(
                 response.iter_content(chunk_size=chunk_size),
                 total=int(response.headers["Content-length"]),
