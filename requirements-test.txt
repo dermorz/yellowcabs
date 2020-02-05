@@ -1,0 +1,37 @@
+-i https://pypi.org/simple
+appdirs==1.4.3
+appnope==0.1.0 ; sys_platform == 'darwin'
+attrs==19.3.0
+backcall==0.1.0
+black==19.10b0
+click==7.0
+decorator==4.4.1
+entrypoints==0.3
+flake8==3.7.9
+importlib-metadata==1.5.0 ; python_version < '3.8'
+ipython-genutils==0.2.0
+ipython==7.12.0
+jedi==0.16.0
+mccabe==0.6.1
+more-itertools==8.2.0
+packaging==20.1
+parso==0.6.1
+pathspec==0.7.0
+pexpect==4.8.0 ; sys_platform != 'win32'
+pickleshare==0.7.5
+pluggy==0.13.1
+prompt-toolkit==3.0.3
+ptyprocess==0.6.0
+py==1.8.1
+pycodestyle==2.5.0
+pyflakes==2.1.1
+pygments==2.5.2
+pyparsing==2.4.6
+pytest==5.3.5
+regex==2020.1.8
+six==1.14.0
+toml==0.10.0
+traitlets==4.3.3
+typed-ast==1.4.1
+wcwidth==0.1.8
+zipp==2.1.0

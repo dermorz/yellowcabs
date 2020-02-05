@@ -1,0 +1,22 @@
+-i https://pypi.org/simple
+attrs==19.3.0
+certifi==2019.11.28
+chardet==3.0.4
+click==7.0
+docutils==0.16
+environ-config==19.1.0
+furl==2.1.0
+idna==2.8
+lockfile==0.12.2
+luigi==3.0.0b1
+numpy==1.18.1
+orderedmultidict==1.0.1
+pandas==1.0.0
+python-daemon==2.2.4
+python-dateutil==2.8.1
+pytz==2019.3
+requests==2.22.0
+six==1.14.0
+tornado==5.1.1
+tqdm==4.42.1
+urllib3==1.25.8
