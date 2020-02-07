@@ -10,8 +10,6 @@ from yellowcabs import processing as p
 @click.argument("year-month", type=click.DateTime(formats=["%Y-%m"]))
 @click.pass_context
 def average_trip_duration(ctx, year_month):
-    year = year_month.year
-    month = year_month.month
     url = get_url(year_month)
     try:
         fname = download(url)
@@ -28,5 +26,6 @@ def average_trip_duration(ctx, year_month):
     )
     duration = int(round(df["duration"][0]))
     click.echo(
-        f"The average trip duration in {month:02d}/{year} was {duration} seconds."
+        f"The average trip duration in "
+        f"{year_month.month:02d}/{year_month.year} was {duration} seconds."
     )

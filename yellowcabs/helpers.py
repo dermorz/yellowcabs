@@ -1,5 +1,7 @@
+from datetime import date
 from datetime import datetime
 import os
+from typing import Union
 
 from furl import furl
 import requests
@@ -8,7 +10,7 @@ from tqdm import tqdm
 from yellowcabs.config import settings
 
 
-def get_url(date: datetime) -> furl:
+def get_url(date: Union[date, datetime]) -> furl:
     fname = f"{settings.trip_data}_{date.year}-{date.month:02d}.csv"
     return furl(settings.base_url).join(fname)
 
