@@ -16,7 +16,6 @@ click = "*"
 furl = "*"
 requests = "*"
 environ-config = "*"
-tqdm = "*"
 
 [requires]
 python_version = "3.7"

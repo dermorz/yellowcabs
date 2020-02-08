@@ -5,7 +5,6 @@ from typing import Union
 
 from furl import furl
 import requests
-from tqdm import tqdm
 
 from yellowcabs.config import settings
 
@@ -27,15 +26,7 @@ def download(url: furl) -> str:
     with requests.get(url, stream=True) as response:
         response.raise_for_status()
         with open(fname, "wb") as f:
-            tq = tqdm(
-                response.iter_content(chunk_size=chunk_size),
-                total=int(response.headers["Content-length"]),
-                unit="bytes",
-                unit_scale=True,
-                leave=False,
-            )
-            for chunk in tq:
+            for chunk in response.iter_content(chunk_size=chunk_size):
                 if chunk:
                     f.write(chunk)
-                    tq.update(chunk_size)
     return fname

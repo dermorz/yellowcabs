@@ -11,12 +11,11 @@ lockfile==0.12.2
 luigi==3.0.0b1
 numpy==1.18.1
 orderedmultidict==1.0.1
-pandas==1.0.0
+pandas==1.0.1
 python-daemon==2.2.4
 python-dateutil==2.8.1
 pytz==2019.3
 requests==2.22.0
 six==1.14.0
 tornado==5.1.1
-tqdm==4.42.1
 urllib3==1.25.8
