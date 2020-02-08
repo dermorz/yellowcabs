@@ -11,6 +11,9 @@ __pycache__/
 MANIFEST
 AUTHORS
 ChangeLog
+.eggs/
+build/
+dist/
 
 # Unit test / coverage reports
 htmlcov/
