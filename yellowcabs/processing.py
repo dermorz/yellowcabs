@@ -1,4 +1,6 @@
+from datetime import date
 from datetime import datetime
+from typing import Union
 
 import pandas as pd
 
@@ -17,8 +19,8 @@ def rename_columns(df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def filter_by_month_year(df: pd.DataFrame, dt: datetime) -> pd.DataFrame:
-    """Filter by rides that started in month and year in given datetime"""
+def filter_by_month_year(df: pd.DataFrame, dt: Union[date, datetime]) -> pd.DataFrame:
+    """Filter by rides that started in month and year in given date or datetime"""
     return df[(df["pickup"].dt.month == dt.month) & (df["pickup"].dt.year == dt.year)]
 
 
