@@ -21,4 +21,3 @@ fmt:
 .PHONY: run-tests
 run-tests: fmt requirements
 	@tox
-
