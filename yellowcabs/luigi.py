@@ -6,9 +6,9 @@ from luigi.contrib import sqla
 import pandas as pd
 import sqlalchemy as sa
 
+from yellowcabs.config import settings
 from yellowcabs import helpers as h
 from yellowcabs import processing as p
-from yellowcabs.config import settings
 
 
 class GetNYTaxiMontlyData(luigi.Task):
@@ -93,10 +93,7 @@ class WriteDailyAveragesToDB(sqla.CopyToTable):
     def requires(self):
         return CalculateDailyAverageTripDuration(month=self.month)
 
-    columns = [
-        (["date", sa.DATE], {"primary_key": True}),
-        (["duration", sa.Float], {})
-    ]
+    columns = [(["date", sa.DATE], {"primary_key": True}), (["duration", sa.Float], {})]
     connection_string = settings.db.url
     table = "trip_duration_daily_average"
     column_separator = ","
@@ -132,10 +129,7 @@ class WriteMonthlyAveragesToDB(sqla.CopyToTable):
     def requires(self):
         return CalculateMonthlyAverageTripDuration(month=self.month)
 
-    columns = [
-        (["date", sa.DATE], {"primary_key": True}),
-        (["duration", sa.Float], {})
-    ]
+    columns = [(["date", sa.DATE], {"primary_key": True}), (["duration", sa.Float], {})]
     connection_string = settings.db.url
     table = "trip_duration_monthly_average"
     column_separator = ","
@@ -157,8 +151,8 @@ class CalculateTripDurationRollingAverage45Days(luigi.Task):
         df = pd.read_sql_table(
             "trip_duration_daily_average",
             con=self.input().engine,
-            parse_dates=['date'],
-            index_col='date',
+            parse_dates=["date"],
+            index_col="date",
         )
         rolling_averages = p.n_day_rolling_average_duration(df, days=45)
         rolling_averages.to_csv(self.output().path, header=False)
@@ -180,7 +174,7 @@ class WriteRollingAveragesToDB(sqla.CopyToTable):
 
     columns = [
         (["date", sa.DATE], {"primary_key": True}),
-        (["rolling_average_45d", sa.Float], {"nullable": True})
+        (["rolling_average_45d", sa.Float], {"nullable": True}),
     ]
     connection_string = settings.db.url
     table = "trip_duration_rolling_average"
