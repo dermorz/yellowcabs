@@ -188,9 +188,12 @@ class WriteRollingAveragesToDB(sqla.CopyToTable):
 
     def rows(self):
         for date_str, duration in super().rows():
+            date = parse(date_str).date()
+            if date.month != self.month.month:
+                continue
             if not duration:
                 duration = None
-            yield parse(date_str).date(), duration
+            yield date, duration
 
 
 class NYTaxiTripDurationAnalytics(luigi.WrapperTask):
