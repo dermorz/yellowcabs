@@ -16,6 +16,7 @@ click = "*"
 furl = "*"
 requests = "*"
 environ-config = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
