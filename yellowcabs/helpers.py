@@ -19,7 +19,7 @@ def get_local_filename(url: furl) -> str:
 
 
 def download(url: furl) -> str:
-    chunk_size = 1024
+    chunk_size = 32 * 1024
     fname = get_local_filename(url)
     if os.path.exists(fname):
         return fname
