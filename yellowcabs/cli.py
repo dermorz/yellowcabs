@@ -7,9 +7,10 @@ from yellowcabs import processing as p
 
 
 @click.command()
-@click.argument("year-month", type=click.DateTime(formats=["%Y-%m"]))
+@click.argument("year-month", type=click.DateTime(formats=["%Y-%m"]), required=1)
 @click.pass_context
 def average_trip_duration(ctx, year_month):
+    """Calculate the average NY yellow cab trip duration in YYYY-MM"""
     url = get_url(year_month)
     try:
         fname = download(url)
