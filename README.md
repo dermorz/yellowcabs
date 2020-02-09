@@ -11,6 +11,11 @@ days rolling average trip length of NY yellow cabs.
 $ pip install dist/yellowcabs-1.0.0-py3-none-any.whl
 ```
 
+For production use the wheel would probably be pushed to a private pypi/devpi
+index and installed from there - or directly copied and installed into a
+docker image for production. This depends on how things are being run in
+production.
+
 ## Configuration
 
 | Environment Variable | Description                   | Default                                         |
@@ -28,6 +33,9 @@ $ pip install dist/yellowcabs-1.0.0-py3-none-any.whl
 $ yellowcabs 2019-01
 The average trip duration in 01/2019 was 988 seconds.
 ```
+
+Rounded to full seconds for readability. More exact data is available in the
+results from the data pipeline.
 
 ### `luigi`
 
