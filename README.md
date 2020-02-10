@@ -5,6 +5,12 @@ days rolling average trip length of NY yellow cabs.
 
 *Disclaimer:  I interpreted "trip length" as duration, not as distance*
 
+
+## Requirements
+
+* Python 3.7
+* tox (optional to run tests and linting smoothly)
+
 ## Setup
 
 ```bash
