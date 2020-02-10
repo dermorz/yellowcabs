@@ -13,6 +13,14 @@ days rolling average trip length of NY yellow cabs.
 
 ## Setup
 
+Clone this repository and
+
+```bash
+$ pip install .
+```
+
+or
+
 ```bash
 $ pip install dist/yellowcabs-1.0.0-py3-none-any.whl
 ```
@@ -56,6 +64,7 @@ batch-ingested.
 
 The 45 day rolling average trip duration can be found in the table
 `trip_duration_rolling_average`. (database as defined in the config)
+
 
 ## Scaling
 
