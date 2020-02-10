@@ -1,3 +1,7 @@
+.PHONY: run-tests
+run-tests: fmt requirements
+	@tox
+
 .IGNORE: clean
 clean:
 	@rm requirements.txt requirements-test.txt
@@ -17,7 +21,3 @@ requirements-test.txt:
 .PHONY: fmt
 fmt:
 	@pipenv run black tests yellowcabs
-
-.PHONY: run-tests
-run-tests: fmt requirements
-	@tox
